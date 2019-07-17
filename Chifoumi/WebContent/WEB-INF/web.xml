@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>Chifoumi</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>TPChifoumi_Module3_TP1</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>jouez</welcome-file>
   </welcome-file-list>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/404_500/500.html</location>
-  </error-page>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/404_500/404.html</location>
-  </error-page>
-  <servlet>
-    <description>Programme de fond de la Jsp Chifoumi</description>
-    <servlet-name>Chifoumi</servlet-name>
-    <jsp-file>/WEB-INF/jsp/Chifoumi/Chifoumi.jsp</jsp-file>
-  </servlet>
+  
+  
+  
+  
 </web-app>
