@@ -21,11 +21,12 @@ public class Chifoumi extends HttpServlet {
 	private String[] choices = {"Chi", "Fou", "Mi"};
 	private String reponseDuPc;
 	private boolean resultat;//gagné = true
+	private String victoireUtilisateur = "false";
     /**
      * Default constructor. 
      */
     public Chifoumi() {
-        // TODO Auto-generated constructor stub
+        this.reponseDuPc = reponseDuPc();
     }
    
     /**
@@ -44,14 +45,39 @@ public class Chifoumi extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// Instancie cette classe
+		Chifoumi chifoumi = new Chifoumi();
+		
+		// Récupère le choix de l'utilisateur renseigné dans le formulaire de la jsp Chifoumi.jsp
 		String choix = request.getParameter("choix");
 		
+		// cherche la réponse aléatoire du pc
+		String resultat = chifoumi.reponseDuPc;
 		
-		String resultat = "Chi";
+		// Compare la réponse de l'utilisateur avec celle du pc
+		if(choix != null)
+		{
+			if(resultat.contentEquals(choix))
+			{
+				this.victoireUtilisateur = "true";
+			}
+			else
+			{
+				this.victoireUtilisateur = "false";
+				
+			}
+		}
 		
 		request.setAttribute("resultat", resultat);
 		request.setAttribute("choix", choix);
+		request.setAttribute("date", "17/07/2019");
+		Object victoireUtilisateur;
+		request.setAttribute("victoireUtilisateur", this.victoireUtilisateur);
 		System.out.println(choix);
+		
+		
+		// Cherche et affiche la jsp
 		RequestDispatcher rd = this.getServletContext().getNamedDispatcher("Chifoumi");
 		rd.forward(request, response);
 	}
@@ -60,7 +86,9 @@ public class Chifoumi extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		
+		
 		doGet(request, response);
 	}
 

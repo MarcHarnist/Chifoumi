@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Chifoumi</title>
 </head>
-<body style="margin:200px;">
+<body style="margin:50px;">
 <h1>Chifoumi - Tp JavaEE</h1>
 <h2>Eni - Niort</h2>
 <h3>17/07/2019</h3>
@@ -18,35 +18,51 @@
 <%
 	String choix;
 	String resultat;
-	if(request.getAttribute("resultat") != null && request.getAttribute("choix") != null)
+	String victoireUtilisateur;
+	if(request.getAttribute("resultat") != null && request.getAttribute("choix") != null && request.getAttribute("victoireUtilisateur") != null)
 	{
 		choix = (String)request.getAttribute("choix");
 		resultat = (String)request.getAttribute("resultat");
+		victoireUtilisateur = (String)request.getAttribute("victoireUtilisateur");
 		if(choix != "")
 		{
 			%>
-			<span style="color:green; font-weight:bold;">Vous avez choisi: <%=choix%></span>
+			Vous avez choisi: <%=choix%>
 			<%
 		}
-		
 		if(resultat != "")
 		{
 			%>
-			<br><span style="color:blue; font-weight:bold; font-size:30px;">Il fallait choisir : <%=resultat%></span>
+			<br><span style="color:blue;">Réponse de l'ordinateur : <%=resultat%></span>
 			<%
 		}
-		
+		if(victoireUtilisateur != "")
+		{
+			if(victoireUtilisateur.equals("true"))
+			{
+			%>
+			<br><span style="color:green;">Vous avez gagné!</span>
+			<%
+			}
+			else
+			{
+			%>
+			<br><span style="color:red;">Vous avez perdu ! Il fallait choisir : <%=resultat%></span>
+			<%
+			}
+		}
 	}
 	else 
 	{
 		%>
-			<span style="color:red; font-weight:bold;">Le programme est à l'arrêt.</span>
-		
+			Le programme est prêt mais n'a pas encore démarré.
 		<%
 	}
-	
-	
 %>
 </h3>
+
+<!--  Test d'affichage d'image  -->
+<p><img src="img/desert.jpg" alt="img/desert.jpg"></p>
+
 </body>
 </html>

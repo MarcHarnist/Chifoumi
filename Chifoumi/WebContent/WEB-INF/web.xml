@@ -22,8 +22,4 @@
     <servlet-name>Chifoumi</servlet-name>
     <jsp-file>/WEB-INF/jsp/Chifoumi/Chifoumi.jsp</jsp-file>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>Chifoumi</servlet-name>
-    <url-pattern>/jsp/Chifoumi</url-pattern>
-  </servlet-mapping>
 </web-app>
