@@ -46,6 +46,16 @@ public class Chifoumi extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Cherche et affiche la jsp
+		RequestDispatcher rd = this.getServletContext().getNamedDispatcher("Chifoumi");
+		rd.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// Instancie cette classe
 		Chifoumi chifoumi = new Chifoumi();
 		
@@ -68,25 +78,12 @@ public class Chifoumi extends HttpServlet {
 				
 			}
 		}
-		
 		request.setAttribute("resultat", resultat);
 		request.setAttribute("choix", choix);
 		request.setAttribute("date", "17/07/2019");
 		Object victoireUtilisateur;
 		request.setAttribute("victoireUtilisateur", this.victoireUtilisateur);
-		System.out.println(choix);
-		
-		
-		// Cherche et affiche la jsp
-		RequestDispatcher rd = this.getServletContext().getNamedDispatcher("Chifoumi");
-		rd.forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println(choix);		
 		
 		
 		doGet(request, response);
